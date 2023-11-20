@@ -1,0 +1,94 @@
+.map {
+	height: 100vh;
+	width: 100%;
+}
+
+#status {
+	font-size: 2rem;
+	display: none;
+}
+
+#tooltip {
+	font-size: 2rem;
+	border: 1px solid $color-pri;
+	padding: 1rem;
+	background-color: white;	
+}
+.town {
+	&-title {
+		font-size: 2rem;
+		background-color: lightgray;
+		margin-bottom: 0.4rem;
+		padding: 8px;
+	}
+	&-info {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;		
+	}
+	&-subt {
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
+	&-value {
+		font-size: 1.5rem;
+	}
+	&-title__2 {
+		font-size: 1.6rem;
+		background-color: lightgray;
+		margin-top: 8px;
+		margin-bottom: 8px;
+		padding: 8px;		
+	}
+}
+
+.controls {
+	position: relative;
+}
+
+#title {
+	position: absolute;
+	top: 8rem;
+	left: 2rem;
+	font-size: 2rem;
+	background-color: white;
+	border: 1px solid $color-pri;
+	border-radius: 2rem;
+	padding: 8px;
+	width: 30%;
+	text-align: center;
+	&__1 {
+		margin: 4px;
+	}
+	&__2 {
+		display: none;
+		font-size: 1.6rem;
+	}
+}
+
+#report {
+	position: absolute;
+	bottom: 16rem;
+	left: 2rem;	
+	font-size: 1.6rem;
+	background-color: ghostwhite;
+	border: 1px solid $color-pri;
+	border-radius: 2rem;
+	padding: 4px;
+	width: 15%;
+	text-align: center;
+	&__hlink {
+		text-decoration: none;
+		color: black;
+	}
+}
+
+#share {
+	position: absolute;
+	bottom: 2rem;
+	left: 2rem;	
+	background-color: transparent;
+	padding: 4px;
+	width: 15%;
+}
+
+

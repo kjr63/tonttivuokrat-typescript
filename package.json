@@ -1,0 +1,68 @@
+{
+	"name": "tonttivuokrat-typescript",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build-sass-dev": "node-sass sass/main.scss public/css/style.css",
+		"watch-sass": "node-sass sass/main.scss public/css/style.css -w",
+		"compile-sass-prod": "node-sass sass/main.scss public/css/style-prod.css",
+		"concat-css": "concat public/css/style-prod.css -o public/css/style-concat.css ",
+		"prefix-css": "postcss --use autoprefixer -b \"last 5 versions\" public/css/style-concat.css -o public/css/style-prefix.css",
+		"compress-css": "node-sass public/css/style-prefix.css public/css/style.css --output-style compressed",
+		"build-sass-prod": "npm-run-all compile-sass-prod concat-css prefix-css compress-css",
+		"build-wp-dev": "webpack",
+		"watch-wp": "webpack -w",
+		"build-wp-prod": "webpack -p --env production",
+		"build-all-dev": "npm-run-all build-wp-dev build-sass-dev",
+		"build-all-prod": "npm-run-all build-wp-prod build-sass-prod",
+		"dev-server": "webpack-dev-server",
+		"test": "jest --config=jest.config.json"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kjr63/tonttivuokrat-typescript.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/kjr63/tonttivuokrat-typescript/issues"
+	},
+	"engines": {
+		"node": "14.21.3",
+		"npm": "6.14.18"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.16.0",
+		"@babel/core": "^7.23.2",
+		"@babel/helper-plugin-utils": "^7.14.5",
+		"@babel/plugin-transform-runtime": "^7.16.4",
+		"@babel/preset-env": "^7.23.2",
+		"@babel/preset-react": "^7.22.15",
+		"@babel/preset-typescript": "^7.23.2",
+		"@types/react": "^18.2.35",
+		"@types/react-dom": "^18.2.14",
+		"autoprefixer": "^9.8.0",
+		"babel-loader": "^8.3.0",
+		"concat": "^1.0.3",
+		"jest": "^20.0.4",
+		"node-sass": "^4.14.1",
+		"npm-run-all": "^4.1.5",
+		"postcss-cli": "^7.1.1",
+		"raf": "^3.3.2",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"react-test-renderer": "^16.0.0",
+		"ts-loader": "^9.5.0",
+		"typescript": "^5.2.2",
+		"webpack": "^4.43.0",
+		"webpack-cli": "^3.3.11",
+		"webpack-dev-server": "^3.11.0"
+	},
+	"dependencies": {
+		"mathjs": "^11.8.0",
+		"ol": "^6.4.3",
+		"react-share": "4.4.0"
+	}
+}
