@@ -1,3 +1,4 @@
+@ECHO OFF
 CD compiler
 DEL /Q *.*
 CD..

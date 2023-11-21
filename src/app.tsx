@@ -1,5 +1,5 @@
 import * as React from "react";
-import OlMap from './components/olmap.js';
+import OlMap from './components/olmap';
 //import '../firebase/firebase.js';
 //import './utils/calc.js';
 
