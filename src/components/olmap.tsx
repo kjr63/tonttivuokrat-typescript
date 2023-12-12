@@ -45,10 +45,10 @@ export interface Props {
 }
 
 function OlMap ( {}:Props ): React.JSX.Element {
-//'HTMLElement | null'
+	
 	useEffect ( () => {
 		const title: (HTMLElement | undefined) = document.getElementById('title') as (HTMLElement | undefined);
-		const tooltip: (HTMLElement | undefined) = document.getElementById('tooltip') as (HTMLElement | undefined);			
+		const tooltip: (HTMLElement | undefined) = document.getElementById('tooltip') as (HTMLElement);			
 		const report: (HTMLElement | undefined) = document.getElementById('report') as (HTMLElement | undefined);
 		const share: (HTMLElement | undefined) = document.getElementById('share') as (HTMLElement | undefined);
 		const mapTitle = new Control({element: title });		
@@ -99,7 +99,8 @@ function OlMap ( {}:Props ): React.JSX.Element {
 				tooltip.innerHTML = '';
 			}
 		});		
-	}, []);
+	}, []); // Vain kerran
+	
 	return (
 		<div>		
 			<div id="status"></div>
