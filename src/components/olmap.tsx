@@ -42,13 +42,14 @@ const vectorLayer = new VectorLayer({
 });
 
 export interface Props {
+	year: string;
 }
 
-function OlMap ( {}:Props ): React.JSX.Element {
-	
+function OlMap ( {year}:Props ): React.JSX.Element {
+	const mapYear = year;
 	useEffect ( () => {
 		const title: (HTMLElement | undefined) = document.getElementById('title') as (HTMLElement | undefined);
-		const tooltip: (HTMLElement | undefined) = document.getElementById('tooltip') as (HTMLElement);			
+		const tooltip: (HTMLElement | undefined) = document.getElementById('tooltip') as (HTMLElement | undefined);			
 		const report: (HTMLElement | undefined) = document.getElementById('report') as (HTMLElement | undefined);
 		const share: (HTMLElement | undefined) = document.getElementById('share') as (HTMLElement | undefined);
 		const mapTitle = new Control({element: title });		
@@ -106,7 +107,7 @@ function OlMap ( {}:Props ): React.JSX.Element {
 			<div id="status"></div>
 			<div className="controls">
 				<div id="title">
-					<div id="title__1">TONTTIVUOKRAT SUOMESSA 2022</div>
+					<div id="title__1">TONTTIVUOKRAT SUOMESSA {mapYear}</div>
 					<div id="title__2">(Osoita kuntaa hiirellä)</div>
 				</div>
 				<div id="report">

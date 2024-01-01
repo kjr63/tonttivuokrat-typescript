@@ -6,7 +6,7 @@ import OlMap from './components/olmap';
 function App (): React.JSX.Element {
 	return (
 		<div>
-			<OlMap />
+			<OlMap year="" />
 		</div>
 	);
 }

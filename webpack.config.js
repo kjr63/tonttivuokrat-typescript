@@ -46,7 +46,9 @@ module.exports = function (env) {
 			devtool: isProduction ? "source-map" : "cheap-module-eval-source-map",
 			devServer: {
 				contentBase: path.join(__dirname, 'public'),
-				hot: true,
+				historyApiFallback: true,				
+				inline:true,
+				port: 8080
 			},
 			
 		}

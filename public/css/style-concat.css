@@ -225,3 +225,12 @@ table, th, td {
   /* box-shadow: 5px 5px 10px black; */
   /* transform: translateY(-2px); */
   /* } */ }
+
+.greeting-text {
+  font-size: 2rem; }
+
+.warning {
+  background-color: orange;
+  color: white;
+  font-size: 2rem;
+  padding: 1rem; }

@@ -63,6 +63,7 @@
 	"dependencies": {
 		"mathjs": "^11.8.0",
 		"ol": "^6.4.3",
+		"react-router-dom": "^6.3.0",
 		"react-share": "4.4.0"
 	}
 }
