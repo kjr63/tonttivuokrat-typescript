@@ -18,7 +18,7 @@ import featureData from '../../data/feature-data.json';
 
 let featureCollection = [];
 
-const image = new CircleStyle({
+const townMarker = new CircleStyle({
   radius: 8,
   fill: new Fill({color:[250,128,114,0.5]}),
   stroke: new Stroke({color: 'red', width: 3}),
@@ -30,10 +30,19 @@ for ( let i=0; i < featureData.length; i++ ) {
 		output: featureData[i].output
 	});
 	feature.setStyle(new Style({
-		image: image,
+		image: townMarker,
 	}));
 	featureCollection.push (feature);	
 }
+
+/* const feature = new Feature ({
+	geometry: new Point (fromLonLat([28.670833, 65.868056])),
+	output: "<div>Hello world!</div>"
+});
+feature.setStyle(new Style({
+	image: townMarker,
+}));
+featureCollection.push (feature); */
 
 const vectorLayer = new VectorLayer({
 	source: new VectorSource({
@@ -50,9 +59,11 @@ function OlMap ( {year}:Props ): React.JSX.Element {
 	useEffect ( () => {
 		const title: (HTMLElement | undefined) = document.getElementById('title') as (HTMLElement | undefined);
 		const tooltip: (HTMLElement | undefined) = document.getElementById('tooltip') as (HTMLElement | undefined);			
+		const total: (HTMLElement | undefined) = document.getElementById('total') as (HTMLElement | undefined);
 		const report: (HTMLElement | undefined) = document.getElementById('report') as (HTMLElement | undefined);
 		const share: (HTMLElement | undefined) = document.getElementById('share') as (HTMLElement | undefined);
 		const mapTitle = new Control({element: title });		
+		const totalReport = new Control({element: total});
 		const valuationReport = new Control({element: report});
 		const shareButtons = new Control({element: share});				
 		const overlay = new Overlay({
@@ -76,30 +87,33 @@ function OlMap ( {year}:Props ): React.JSX.Element {
 		});
 		//overlay.setPosition(akaaCoords);
 		map.addControl(mapTitle);
+		map.addControl(totalReport);
 		map.addControl(valuationReport);
 		map.addControl(shareButtons);
 		map.addOverlay(overlay);		
-		let selected: any = null;		
-		map.on('pointermove', function (e) {
-			if (selected !== null) {
-				//selected.setStyle(undefined);
-				overlay.setPosition(undefined);
-				selected = null;
-			}
-			map.forEachFeatureAtPixel(e.pixel, function (f) {
-				selected = f;
-				//selectStyle.getFill().setColor(f.get('COLOR') || '#eeeeee');
-				//f.setStyle(selectStyle);
-				return true;
-			});
-			if (selected) {
-				//console.log('tooltip hover');
-				overlay.setPosition(e.coordinate);
-				tooltip.innerHTML = selected.get('output');
-			} else {
-				tooltip.innerHTML = '';
-			}
-		});		
+		let selected: any = null;
+		if (tooltip !== undefined) {
+			map.on('pointermove', function (e) {
+				if (selected !== null) {
+					//selected.setStyle(undefined);
+					overlay.setPosition(undefined);
+					selected = null;
+				}
+				map.forEachFeatureAtPixel(e.pixel, function (f) {
+					selected = f;
+					//selectStyle.getFill().setColor(f.get('COLOR') || '#eeeeee');
+					//f.setStyle(selectStyle);
+					return true;
+				});
+				if (selected) {
+					//console.log('tooltip hover');
+					overlay.setPosition(e.coordinate);
+					tooltip.innerHTML = selected.get('output');
+				} else {
+					tooltip.innerHTML = '';
+				}
+			});	
+		}
 	}, []); // Vain kerran
 	
 	return (
@@ -110,6 +124,9 @@ function OlMap ( {year}:Props ): React.JSX.Element {
 					<div id="title__1">TONTTIVUOKRAT SUOMESSA {mapYear}</div>
 					<div id="title__2">(Osoita kuntaa hiirellä)</div>
 				</div>
+				<div id="total">
+					<a id="total__hlink" href="app-data/total-value.txt">Koko maa</a>
+				</div>				
 				<div id="report">
 					<a id="report__hlink" href="vendor/doc.txt">Arvonmääritysraportti</a>
 				</div>

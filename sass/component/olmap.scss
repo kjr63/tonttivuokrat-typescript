@@ -64,7 +64,22 @@
 		font-size: 1.6rem;
 	}
 }
-
+#total {
+	position: absolute;
+	bottom: 24rem;
+	left: 2rem;	
+	font-size: 1.6rem;
+	background-color: ghostwhite;
+	border: 1px solid $color-pri;
+	border-radius: 2rem;
+	padding: 4px;
+	width: 15%;
+	text-align: center;
+	&__hlink {
+		text-decoration: none;
+		color: black;
+	}
+}
 #report {
 	position: absolute;
 	bottom: 16rem;
