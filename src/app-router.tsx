@@ -3,8 +3,9 @@ import {
 	BrowserRouter, Routes, Route, Link, Outlet, useParams, NavLink,
 	useSearchParams, useLocation, useNavigate
 } from 'react-router-dom';
-//import Hello from './hello';
 import OlMap from './components/olmap';
+//import muniData from '../../data/municipality-data.json';
+//import totalData from '../../data/total-data.json';
 
 const latestYear : number = new Date().getFullYear()-1;
 
@@ -41,12 +42,25 @@ function getExclamationMarks(numChars: number): string {
 
 export interface AppProps {}
 
-function AppRouter ( {}:AppProps ) : React.JSX.Element {
+/* function AppRouter ( {}:AppProps ) : React.JSX.Element {
 	return (
 		<BrowserRouter>
 			<Routes>
 				<Route index element={<OlMap year={latestYear.toString()}/>} />			
 				<Route path="2022" element={<OlMap year="2022"/>} />
+				<Route path="hello" element={<Hello name="Bill" enthusiasmLevel = {2} />} />
+				<Route path="*" element={<NothingHere />} />
+			</Routes>			
+		</BrowserRouter>
+	);
+} */
+
+function AppRouter ( {}:AppProps ) : React.JSX.Element {
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route index element={<OlMap year={latestYear.toString()}/>} />			
+				<Route path="total" element={<OlMap year="2022"/>} />
 				<Route path="hello" element={<Hello name="Bill" enthusiasmLevel = {2} />} />
 				<Route path="*" element={<NothingHere />} />
 			</Routes>			
