@@ -1,28 +1,27 @@
 import * as React from "react";
-import { createRoot } from "react-dom/client";
+import * as ReactDOM from "react-dom/client";
 import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Link,
+	createBrowserRouter,
+	RouterProvider,
 } from "react-router-dom";
+import Root from "./routes/root";
+import ErrorPage from "./components/error-page";
+import Contact from "./routes/contact";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <div>
-        <h1>Hello World</h1>
-        <Link to="about">About Us</Link>
-      </div>
-    ),
-  },
-  {
-    path: "about",
-    element: <div>About</div>,
-  },
+	{
+		path: "/",
+		element: <Root />,
+		errorElement: <ErrorPage />,	
+	},
+	{
+		path: "contacts/:contactId",
+		element: <Contact />,
+	},  
 ]);
 
-createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+ReactDOM.createRoot(document.getElementById("root") as Element).render(
+	<React.StrictMode>
+		<RouterProvider router={router} />
+	</React.StrictMode>
 );

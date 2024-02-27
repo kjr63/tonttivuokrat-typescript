@@ -12,6 +12,7 @@
 Tehtävää:
 
 - Ennen muutoksia Routeriin, päivitettävä router versioon 6.22
+- Päivitettävä sovellus toimimaan uusilla versioilla
 - Routerin kautta, suosikit-linkkeihin talletettavat, aktivoitavat sivut (3 kpl):
 	* Tonttiarvokartta
 	* Koko maan tiedot
