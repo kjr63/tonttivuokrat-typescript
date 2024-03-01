@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Overlay from 'ol/Overlay.js';
 import Circle from 'ol/geom/Circle.js';
 import Polygon from 'ol/geom/Polygon.js';
@@ -57,6 +57,7 @@ export interface Props {
 function OlMap ( {year}:Props ): React.JSX.Element {
 	const mapYear = year;
 	useEffect ( () => {
+		console.log("I'm mounting!");
 		const title: (HTMLElement | undefined) = document.getElementById('title') as (HTMLElement | undefined);
 		const tooltip: (HTMLElement | undefined) = document.getElementById('tooltip') as (HTMLElement | undefined);			
 		const total: (HTMLElement | undefined) = document.getElementById('total') as (HTMLElement | undefined);
@@ -154,4 +155,25 @@ function OlMap ( {year}:Props ): React.JSX.Element {
 
 export default OlMap;
 
+
+export function MapView({ zoom = 1 }: { zoom?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<Map| null>(null);
+  useEffect(() => {
+    console.log("I'm mounting!");
+    if (ref.current && !mapRef.current) {
+      mapRef.current = new Map({
+        layers: [new TileLayer({ source: new OSM() })],
+        view: new View({ center: [0, 0], zoom: 1 }),
+        target: ref.current
+      });
+    }
+  }, [ref, mapRef]);
+
+  useEffect(() => {
+    mapRef.current?.getView().setZoom(zoom);
+  }, [mapRef, zoom]);
+
+  return <div ref={ref} style={{ width: "100%", height: "300px" }} />;
+}
 

@@ -8,6 +8,8 @@
 "react": "^16.13.1",
 "react-dom": "^16.13.1",
 
+Virheitä:
+- React 18 mounttaa kartan kahteen kertaan. Tämä ei tapahtu tuotantomodessa, joten siitä ei ole haittaa. Mutta vaikka se toimii, on se virhe kuitenkin
 
 Tehtävää:
 

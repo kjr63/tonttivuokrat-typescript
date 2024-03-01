@@ -4,9 +4,13 @@ import {
 	createBrowserRouter,
 	RouterProvider,
 } from "react-router-dom";
+import OlMap from './components/olmap';
+import TotalStat from "./components/total-stat";
+import ValuationReport from "./components/valuation-report";
+//import {MapView} from './components/olmap';
 import Root from "./routes/root";
 import ErrorPage from "./components/error-page";
-import Contact from "./routes/contact";
+/*import Contact from "./routes/contact";
 
 const router = createBrowserRouter([
 	{
@@ -17,6 +21,49 @@ const router = createBrowserRouter([
 	{
 		path: "contacts/:contactId",
 		element: <Contact />,
+	},  
+]); */
+
+export interface HelloProps {
+  name: string;
+  enthusiasmLevel?: number;
+}
+
+function Hello({ name, enthusiasmLevel = 1 }: HelloProps): React.JSX.Element {
+  if (enthusiasmLevel <= 0) {
+    throw new Error("You could be a little more enthusiastic. :D");
+  }
+
+  return (
+    <div className="greeting">
+      <div className="greeting-text">
+        Hello {name + getExclamationMarks(enthusiasmLevel)}
+      </div>
+    </div>
+  );
+}
+
+function getExclamationMarks(numChars: number): string {
+  return Array(numChars + 1).join("!");
+}
+
+const latestYear : number = new Date().getFullYear()-1;
+
+const router = createBrowserRouter([
+	{
+		path: "/",
+		element: <OlMap year={latestYear.toString()} />,
+		//element: <MapView />,
+		//element: <Root />,
+		errorElement: <ErrorPage />,	
+	},
+	{
+		path: "total",
+		element: <TotalStat />,
+	},	
+	{
+		path: "valuation-report",
+		element: <ValuationReport />,
 	},  
 ]);
 
