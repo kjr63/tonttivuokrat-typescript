@@ -14,6 +14,7 @@ import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer.js';
 import {fromLonLat} from 'ol/proj';
 import Control from 'ol/control/Control.js';
 import { TwitterShareButton, TwitterIcon, FacebookShareButton, FacebookIcon } from "react-share";
+import { Link, useNavigate } from "react-router-dom";
 import featureData from '../../data/feature-data.json';
 
 let featureCollection = [];
@@ -56,14 +57,17 @@ export interface Props {
 
 function OlMap ( {year}:Props ): React.JSX.Element {
 	const mapYear = year;
+	const navigate = useNavigate();
 	useEffect ( () => {
 		console.log("I'm mounting!");
+		const tooltip: (HTMLElement | undefined) = document.getElementById('tooltip') as (HTMLElement | undefined);		
 		const title: (HTMLElement | undefined) = document.getElementById('title') as (HTMLElement | undefined);
-		const tooltip: (HTMLElement | undefined) = document.getElementById('tooltip') as (HTMLElement | undefined);			
+		const stats: (HTMLElement | undefined) = document.getElementById('stats') as (HTMLElement | undefined);		
 		const total: (HTMLElement | undefined) = document.getElementById('total') as (HTMLElement | undefined);
 		const report: (HTMLElement | undefined) = document.getElementById('report') as (HTMLElement | undefined);
 		const share: (HTMLElement | undefined) = document.getElementById('share') as (HTMLElement | undefined);
-		const mapTitle = new Control({element: title });		
+		const mapTitle = new Control({element: title });
+		const statsPage = new Control({element: stats});		
 		const totalReport = new Control({element: total});
 		const valuationReport = new Control({element: report});
 		const shareButtons = new Control({element: share});				
@@ -88,6 +92,7 @@ function OlMap ( {year}:Props ): React.JSX.Element {
 		});
 		//overlay.setPosition(akaaCoords);
 		map.addControl(mapTitle);
+		map.addControl(statsPage);		
 		map.addControl(totalReport);
 		map.addControl(valuationReport);
 		map.addControl(shareButtons);
@@ -122,14 +127,17 @@ function OlMap ( {year}:Props ): React.JSX.Element {
 			<div id="status"></div>
 			<div className="controls">
 				<div id="title">
-					<div id="title__1">TONTTIVUOKRAT SUOMESSA {mapYear}</div>
+					<div id="title__1">TONTTIVUOKRAT SUOMESSA</div>
 					<div id="title__2">(Osoita kuntaa hiirellä)</div>
 				</div>
-				<div id="total">
-					<a id="total__hlink" href="app-data/total-value.txt">Koko maa</a>
+				<div id="stats" onClick={() => navigate("statistics")}>
+					Tiedot numeroina					
 				</div>				
-				<div id="report">
-					<a id="report__hlink" href="vendor/doc.txt">Arvonmääritysraportti</a>
+				<div id="total" onClick={() => navigate("total")}>
+					Koko maa
+				</div>				
+				<div id="report" onClick={() => navigate("report")}>
+					Arvonmääritysraportti
 				</div>
 			</div>
 			<div id="tooltip"></div>
@@ -154,26 +162,4 @@ function OlMap ( {year}:Props ): React.JSX.Element {
 }
 
 export default OlMap;
-
-
-export function MapView({ zoom = 1 }: { zoom?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<Map| null>(null);
-  useEffect(() => {
-    console.log("I'm mounting!");
-    if (ref.current && !mapRef.current) {
-      mapRef.current = new Map({
-        layers: [new TileLayer({ source: new OSM() })],
-        view: new View({ center: [0, 0], zoom: 1 }),
-        target: ref.current
-      });
-    }
-  }, [ref, mapRef]);
-
-  useEffect(() => {
-    mapRef.current?.getView().setZoom(zoom);
-  }, [mapRef, zoom]);
-
-  return <div ref={ref} style={{ width: "100%", height: "300px" }} />;
-}
 

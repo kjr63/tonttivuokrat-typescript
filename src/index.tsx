@@ -7,7 +7,7 @@ import {
 import OlMap from './components/olmap';
 import TotalStat from "./components/total-stat";
 import ValuationReport from "./components/valuation-report";
-//import {MapView} from './components/olmap';
+import StatisticsPage from "./components/statistics-page";
 import Root from "./routes/root";
 import ErrorPage from "./components/error-page";
 /*import Contact from "./routes/contact";
@@ -53,16 +53,19 @@ const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <OlMap year={latestYear.toString()} />,
-		//element: <MapView />,
 		//element: <Root />,
 		errorElement: <ErrorPage />,	
 	},
+	{
+		path: "statistics",
+		element: <StatisticsPage />,
+	},	
 	{
 		path: "total",
 		element: <TotalStat />,
 	},	
 	{
-		path: "valuation-report",
+		path: "report",
 		element: <ValuationReport />,
 	},  
 ]);

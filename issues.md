@@ -11,11 +11,9 @@
 Virheitä:
 - React 18 mounttaa kartan kahteen kertaan. Tämä ei tapahtu tuotantomodessa, joten siitä ei ole haittaa. Mutta vaikka se toimii, on se virhe kuitenkin
 
-Tehtävää:
+Seuraavaksi:
+- tooltip tulosteet
+- tilastosivu
+- koko maa tilastot
+- arvonmääritysraportti
 
-- Ennen muutoksia Routeriin, päivitettävä router versioon 6.22
-- Päivitettävä sovellus toimimaan uusilla versioilla
-- Routerin kautta, suosikit-linkkeihin talletettavat, aktivoitavat sivut (3 kpl):
-	* Tonttiarvokartta
-	* Koko maan tiedot
-	* Tilastosivu, jossa tiedot taulukko- tai graafisessa muodossa, Trading Economicsin tapaan

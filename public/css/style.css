@@ -94,51 +94,6 @@ table, th, td {
   visibility: visible;
   opacity: 1; }
 
-.template {
-  background-color: #a79e84;
-  transform: skewY(-20deg); }
-
-/*
-    Created on : 28.2.2020, 12:53:40
-    Author     : risberg
-*/
-.header {
-  font-size: 8rem;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  padding: 1.6rem;
-  transform: translateY(-12rem); }
-  .header__text-1 {
-    color: ForestGreen;
-    font-family: sans-serif;
-    font-weight: bold;
-    text-shadow: 3px 3px 5px #a79e84; }
-  .header__text-2 {
-    color: DarkGrey;
-    font-size: 3.2rem; }
-
-.image_block {
-  text-align: right; }
-  .image_block__image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; }
-
-.content {
-  display: flex;
-  justify-content: space-around;
-  align-items: top;
-  padding-top: 4rem;
-  transform: skewY(20deg); }
-  .content__left {
-    flex-basis: 15%; }
-  .content__center {
-    overflow: hidden; }
-  .content__right {
-    flex-basis: 3%;
-    height: 100vh; }
-
 .map {
   height: 100vh;
   width: 100%; }
@@ -197,6 +152,22 @@ table, th, td {
     display: none;
     font-size: 1.6rem; }
 
+#stats {
+  position: absolute;
+  bottom: 32rem;
+  left: 2rem;
+  font-size: 1.6rem;
+  background-color: ghostwhite;
+  border: 1px solid #454140;
+  border-radius: 2rem;
+  padding: 4px;
+  width: 15%;
+  text-align: center;
+  cursor: pointer; }
+  #stats__hlink {
+    text-decoration: none;
+    color: black; }
+
 #total {
   position: absolute;
   bottom: 24rem;
@@ -207,7 +178,8 @@ table, th, td {
   border-radius: 2rem;
   padding: 4px;
   width: 15%;
-  text-align: center; }
+  text-align: center;
+  cursor: pointer; }
   #total__hlink {
     text-decoration: none;
     color: black; }
@@ -222,7 +194,8 @@ table, th, td {
   border-radius: 2rem;
   padding: 4px;
   width: 15%;
-  text-align: center; }
+  text-align: center;
+  cursor: pointer; }
   #report__hlink {
     text-decoration: none;
     color: black; }
@@ -235,7 +208,73 @@ table, th, td {
   padding: 4px;
   width: 15%; }
 
+.stats-page {
+  margin-left: 2rem; }
+  .stats-page__title {
+    font-size: 4rem;
+    padding: 2rem; }
+  .stats-page__link {
+    font-size: 2rem; }
+
+.template {
+  background-color: #a79e84;
+  transform: skewY(-20deg); }
+
+/*
+    Created on : 28.2.2020, 12:53:40
+    Author     : risberg
+*/
+.header {
+  font-size: 8rem;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 1.6rem;
+  transform: translateY(-12rem); }
+  .header__text-1 {
+    color: ForestGreen;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-shadow: 3px 3px 5px #a79e84; }
+  .header__text-2 {
+    color: DarkGrey;
+    font-size: 3.2rem; }
+
+.image_block {
+  text-align: right; }
+  .image_block__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; }
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  align-items: top;
+  padding-top: 4rem;
+  transform: skewY(20deg); }
+  .content__left {
+    flex-basis: 15%; }
+  .content__center {
+    overflow: hidden; }
+  .content__right {
+    flex-basis: 3%;
+    height: 100vh; }
+
 .share-buttons {
+  /* &:hover { */
+  /* box-shadow: 5px 5px 10px black; */
+  /* transform: translateY(-2px); */
+  /* } */ }
+
+.push-button {
+  background-color: whitesmoke;
+  color: #454140;
+  padding: 0.4rem;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+  box-shadow: 5px 5px black;
+  cursor: pointer;
   /* &:hover { */
   /* box-shadow: 5px 5px 10px black; */
   /* transform: translateY(-2px); */

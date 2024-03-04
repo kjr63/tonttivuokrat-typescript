@@ -4,6 +4,3 @@ export interface Props {
 }
 declare function OlMap({ year }: Props): React.JSX.Element;
 export default OlMap;
-export declare function MapView({ zoom }: {
-    zoom?: number;
-}): React.JSX.Element;

@@ -94,6 +94,9 @@ table, th, td {
   visibility: visible;
   opacity: 1; }
 
+.stats-page {
+  font-size: 4rem; }
+
 .template {
   background-color: #a79e84;
   transform: skewY(-20deg); }
@@ -196,6 +199,36 @@ table, th, td {
   #title__2 {
     display: none;
     font-size: 1.6rem; }
+
+#stats {
+  position: absolute;
+  bottom: 32rem;
+  left: 2rem;
+  font-size: 1.6rem;
+  background-color: ghostwhite;
+  border: 1px solid #454140;
+  border-radius: 2rem;
+  padding: 4px;
+  width: 15%;
+  text-align: center; }
+  #stats__hlink {
+    text-decoration: none;
+    color: black; }
+
+#total {
+  position: absolute;
+  bottom: 24rem;
+  left: 2rem;
+  font-size: 1.6rem;
+  background-color: ghostwhite;
+  border: 1px solid #454140;
+  border-radius: 2rem;
+  padding: 4px;
+  width: 15%;
+  text-align: center; }
+  #total__hlink {
+    text-decoration: none;
+    color: black; }
 
 #report {
   position: absolute;
