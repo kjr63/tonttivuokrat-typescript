@@ -1,3 +1,4 @@
+//FIRMWARE
 import * as React from 'react';
 import { useEffect, useRef } from 'react';
 import Overlay from 'ol/Overlay.js';
@@ -15,7 +16,14 @@ import {fromLonLat} from 'ol/proj';
 import Control from 'ol/control/Control.js';
 import { TwitterShareButton, TwitterIcon, FacebookShareButton, FacebookIcon } from "react-share";
 import { Link, useNavigate } from "react-router-dom";
+
+//INPUT DATA
+import { Municipality, MuniDO, Statistics, StatDO } from '../../api/api';
 import featureData from '../../data/feature-data.json';
+import muniData from '../../data/municipality-data.json';
+
+console.log("munid ", muniData);
+//Muodosta input-kuntatiedoista karttasovellukselle layer
 
 let featureCollection = [];
 
@@ -36,14 +44,30 @@ for ( let i=0; i < featureData.length; i++ ) {
 	featureCollection.push (feature);	
 }
 
-/* const feature = new Feature ({
+let newFeatureCollection = [];
+
+for ( let i=0; i < muniData.length; i++ ) {
+	const muni: Municipality = new Municipality ();
+	muni.setDataObject(muniData[i] as MuniDO);
+	const muniTooltip: string = createStatTooltip (muni);
+	const feature = new Feature ({
+		geometry: new Point (fromLonLat(muni.getCoords())),
+		output: muniTooltip
+	});
+	feature.setStyle(new Style({
+		image: townMarker,
+	}));
+	newFeatureCollection.push (feature);	
+}
+
+const feature = new Feature ({
 	geometry: new Point (fromLonLat([28.670833, 65.868056])),
 	output: "<div>Hello world!</div>"
 });
 feature.setStyle(new Style({
 	image: townMarker,
 }));
-featureCollection.push (feature); */
+featureCollection.push (feature);
 
 const vectorLayer = new VectorLayer({
 	source: new VectorSource({
@@ -51,13 +75,11 @@ const vectorLayer = new VectorLayer({
 	}),
 });
 
-export interface Props {
-	year: string;
-}
+export interface Props {}
 
-function OlMap ( {year}:Props ): React.JSX.Element {
-	const mapYear = year;
-	const navigate = useNavigate();
+function OlMap ( ): React.JSX.Element {
+	const navigate = useNavigate();	
+	const mapYear : number = new Date().getFullYear()-1;	
 	useEffect ( () => {
 		console.log("I'm mounting!");
 		const tooltip: (HTMLElement | undefined) = document.getElementById('tooltip') as (HTMLElement | undefined);		

@@ -47,12 +47,10 @@ function getExclamationMarks(numChars: number): string {
   return Array(numChars + 1).join("!");
 }
 
-const latestYear : number = new Date().getFullYear()-1;
-
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <OlMap year={latestYear.toString()} />,
+		element: <OlMap />,
 		//element: <Root />,
 		errorElement: <ErrorPage />,	
 	},
