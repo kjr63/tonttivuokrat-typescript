@@ -132,3 +132,4 @@ export class CountryTotal {
 }
 export const MUNICIPALITY_OUT_FILE_NAME: string = "municipality-data.json";
 export const TOTAL_OUT_FILE_NAME: string = "total-data.json";
+export const GENERAL_DATA_FILE_NAME: string = "general-data.json";

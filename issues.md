@@ -13,7 +13,7 @@ Virheitä:
 
 Seuraavaksi:
 - tooltip tulosteet
-	* util-funktio calc
+	* my-util-funktio
 - tilastosivu
 - koko maa tilastot
 - arvonmääritysraportti

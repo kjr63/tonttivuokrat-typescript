@@ -41,6 +41,21 @@
 	}
 }
 
+.stat-table {
+	&__title {
+		font-size: 1.5rem;
+		display: inline-block;
+	}
+	&__year {
+		font-size: 1rem;
+		display: inline-block;
+	}
+	&__array {
+		font-size: 1rem;
+		display: inline-block;
+	}	
+}
+
 .controls {
 	position: relative;
 }

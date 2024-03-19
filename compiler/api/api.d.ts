@@ -64,3 +64,4 @@ export declare class CountryTotal {
 }
 export declare const MUNICIPALITY_OUT_FILE_NAME: string;
 export declare const TOTAL_OUT_FILE_NAME: string;
+export declare const GENERAL_DATA_FILE_NAME: string;

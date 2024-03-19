@@ -21,6 +21,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Municipality, MuniDO, Statistics, StatDO } from '../../api/api';
 import featureData from '../../data/feature-data.json';
 import muniData from '../../data/municipality-data.json';
+import { createStatTooltip } from '../utils/my-utils';
 
 console.log("munid ", muniData);
 //Muodosta input-kuntatiedoista karttasovellukselle layer
@@ -71,7 +72,7 @@ featureCollection.push (feature);
 
 const vectorLayer = new VectorLayer({
 	source: new VectorSource({
-		features: featureCollection
+		features: newFeatureCollection
 	}),
 });
 

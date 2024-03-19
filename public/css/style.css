@@ -132,6 +132,18 @@ table, th, td {
   margin-bottom: 8px;
   padding: 8px; }
 
+.stat-table__title {
+  font-size: 1.5rem;
+  display: inline-block; }
+
+.stat-table__year {
+  font-size: 1rem;
+  display: inline-block; }
+
+.stat-table__array {
+  font-size: 1rem;
+  display: inline-block; }
+
 .controls {
   position: relative; }
 
