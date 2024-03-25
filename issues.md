@@ -14,7 +14,32 @@ Virheitä:
 Seuraavaksi:
 - tooltip tulosteet
 	* my-util-funktio
+	* tehdään tooltipistä flex-talukko?
 - tilastosivu
 - koko maa tilastot
 - arvonmääritysraportti
+
+
+<div className="tooltip_table">
+	<div className="tooltip_table__title"></div> 
+	<div className="tooltip_table__header">
+		<div className="tooltip_table__municipality"></div>
+		<div className="tooltip_table__year"></div>
+	</div> 
+	<div className="tooltip_table__stat_line">
+		<div className="tooltip_table__stat_title"></div>
+		<div className="tooltip_table__stat_data"></div>		
+	</div> 
+	<div className="tooltip_table__explanations">
+</div>
+
+
+
+
+
+
+
+
+
+
 
