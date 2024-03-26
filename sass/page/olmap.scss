@@ -14,6 +14,56 @@
 	padding: 1rem;
 	background-color: white;	
 }
+.tooltip_table {
+	&__title {
+		font-size: 2rem;
+		border: 1px solid $color-pri;
+		padding: 1rem;
+		background-color: whitesmoke;		
+	}
+	&__header { //flex container
+		font-size: 1.6rem;
+		border: 1px solid black;
+		//padding: 1rem;
+		background-color: white;
+		display: flex;
+		justify-content: space-around;
+	}
+	&__municipality {
+		//font-size: 1rem;
+		font-weight: bold;
+		border: 1px solid black;
+		padding: 0.2rem;
+		background-color: white;	
+	}
+	&__year {
+		//font-size: 1rem;
+		border: 1px solid black;
+		padding: 0.2rem;
+		background-color: white;	
+	}
+	&__stat_line { //flex container
+		font-size: 1.6rem;
+		border: 1px solid black;
+		//padding: 0.2rem;
+		background-color: white;
+		display: flex;
+		justify-content: space-around;		
+	}
+	&__stat_title {
+		//font-size: 1rem;
+		border: 1px solid black;
+		padding: 0.2rem;
+		background-color: white;			
+	}
+	&__stat_data {
+		//font-size: 1rem;
+		border: 1px solid black;
+		padding: 0.2rem;
+		background-color: white;			
+	}
+}
+
 .town {
 	&-title {
 		font-size: 2rem;

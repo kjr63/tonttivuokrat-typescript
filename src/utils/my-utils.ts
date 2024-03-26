@@ -11,10 +11,12 @@ export async function setImgData (data: string) {
 
 export function createStatTooltip (m: Municipality): string {
 	let result: string = "<div>no data available</div>";
-	let temp: string;
+	let strTemp: string;
+	let arrTemp: string [] = [];
 	const yrLen: number = years.length;
-	console.log ("map "+years.map(function(x){return(x);}));
-	console.log ("flatmap "+years.flatMap((x) => {return(x);}));
+	const s: Statistics = m.getStatistics();
+	//console.log ("map "+years.map(function(x){return(x);}));
+	//console.log ("flatmap "+years.flatMap((x) => {return(x);}));
 	if (yrLen > 0) {
 		// Luo tooltip html
 		result = '<div class="tooltip_table">';
@@ -23,66 +25,68 @@ export function createStatTooltip (m: Municipality): string {
 		
 		result += '<div class="tooltip_table__header">';
 			result += '<div class="tooltip_table__municipality">'+m.getName()+'</div>';
-			result += '<div class="tooltip_table__year">'+years.map(function(x) {return(x);})+'</div>';
+			//result += '<div class="tooltip_table__year">'+years.map((x) => {return(x);})+'</div>';
+			//strTemp = strTemp.replaceAll(',','');
+			//strTemp = strTemp.split(',').join('');
+			arrTemp = years.map((x) => {return('<div class="tooltip_table__year">'+x+'</div>');})
+			strTemp = arrTemp.join('');			
+			result += strTemp;
 		result += '</div>';		
 		
 		result +='<div class="tooltip_table__stat_line">';
-			result +='<div class="tooltip_table__stat_title">keskimääräinen hinta per kem2 euroa</div><div class="tooltip_table__stat_data"></div>';
+			result +='<div class="tooltip_table__stat_title">keskimääräinen tonttiarvo per kem2 euroa</div>';
+			//result += '<div class="tooltip_table__stat_data">'+s.getAvLandPrice().map((x) => {return(x);})+'</div>';
+			result += s.getAvLandPrice().map((x) => ('<div class="tooltip_table__stat_data">'+x+'</div>')).join('');
 		result += '</div>';
 		
 		result +='<div class="tooltip_table__stat_line">';
-			result +='<div class="tooltip_table__stat_title">alin hinta per kem2 euroa</div><div class="tooltip_table__stat_data"></div>';
+			result +='<div class="tooltip_table__stat_title">alin tonttiarvo per kem2 euroa</div>';
+			result += s.getLowLandPrice().map((x) => ('<div class="tooltip_table__stat_data">'+x+'</div>')).join('');			
 		result += '</div>';		
 		
 		result +='<div class="tooltip_table__stat_line">';
-			result +='<div class="tooltip_table__stat_title">korkein hinta per kem2 euroa</div><div class="tooltip_table__stat_data"></div>';
+			result +='<div class="tooltip_table__stat_title">korkein tonttiarvo per kem2 euroa</div>';
+			result += s.getHighLandPrice().map((x) => ('<div class="tooltip_table__stat_data">'+x+'</div>')).join('');			
 		result += '</div>';
 		
 		result +='<div class="tooltip_table__stat_line">';		
-			result +='<div class="tooltip_table__stat_title">keskimääräinen tonttivuokra per kem2/kk euroa</div><div class="tooltip_table__stat_data"></div>';
+			result +='<div class="tooltip_table__stat_title">keskimääräinen tonttivuokra per kem2/kk euroa</div>';
+			result += s.getAvLandRent().map((x) => ('<div class="tooltip_table__stat_data">'+x+'</div>')).join('');			
 		result += '</div>';
 		
 		result +='<div class="tooltip_table__stat_line">';		
-			result +='<div class="tooltip_table__stat_title">keskimääräinen tonttiarvo per kem2 euroa</div><div class="tooltip_table__stat_data"></div>';	
+			result +='<div class="tooltip_table__stat_title">alin tonttivuokra per kem2/kk euroa </div>';
+			result += s.getLowLandRent().map((x) => ('<div class="tooltip_table__stat_data">'+x+'</div>')).join('');			
+		result += '</div>';		
+		
+		result +='<div class="tooltip_table__stat_line">';		
+			result +='<div class="tooltip_table__stat_title">korkein tonttivuokra per kem2/kk euroa</div>';
+			result += s.getHighLandRent().map((x) => ('<div class="tooltip_table__stat_data">'+x+'</div>')).join('');		
 		result += '</div>';
-		
-		result +='<div class="tooltip_table__stat_line">';		
-			result +='<div class="tooltip_table__stat_title">alin tonttivuokra per kem2/kk euroa </div><div class="tooltip_table__stat_data"></div>';
-		result += '</div>';		
-		
-		result +='<div class="tooltip_table__stat_line">';		
-			result +='<div class="tooltip_table__stat_title">alin tonttiarvo per kem2 euroa </div><div class="tooltip_table__stat_data"></div>';
-		result += '</div>';		
-		
-		result +='<div class="tooltip_table__stat_line">';		
-			result +='<div class="tooltip_table__stat_title">korkein tonttivuokra per kem2/kk euroa</div><div class="tooltip_table__stat_data"></div>';
-		result += '</div>';
-		
-		result +='<div class="tooltip_table__stat_line">';		
-			result +='<div class="tooltip_table__stat_title">korkein tonttiarvo per kem2 euroa</div><div class="tooltip_table__stat_data"></div>';
-		result += '</div>';		
-		
-		result +='<div class="tooltip_table__stat_line">';		
-			result +='<div class="tooltip_table__stat_title">keskimääräinen vuokra per kem2/kk euroa</div><div class="tooltip_table__stat_data"></div>';
-		result += '</div>';		
 
-		result += '<div class="tooltip_table__header">Kunta yhteensä</div>';
+		result += '<div class="tooltip_table__header">';
+			result += '<div class="tooltip_table__municipality">Maa yhteensä</div>';
+			result += years.map((x) => ('<div class="tooltip_table__stat_data">'+x+'</div>')).join('');			
+		result += '</div>';
 
 		result +='<div class="tooltip_table__stat_line">';		
-			result +='<div class="tooltip_table__stat_title">asuntotonttien kokonaismäärä kem2</div><div class="tooltip_table__stat_data"></div>';
+			result +='<div class="tooltip_table__stat_title">asuntotonttien kokonaismäärä kem2</div>';
+			result += s.getTotalLand().map((x) => ('<div class="tooltip_table__stat_data">'+x+'</div>')).join('');			
 		result += '</div>';		
 		
 		result +='<div class="tooltip_table__stat_line">';		
-			result +='<div class="tooltip_table__stat_title">asuntotonttimaan kokonaisarvo euroa</div><div class="tooltip_table__stat_data"></div>';
+			result +='<div class="tooltip_table__stat_title">asuntotonttimaan kokonaisarvo euroa</div>';
+			result += s.getTotalLandValue().map((x) => ('<div class="tooltip_table__stat_data">'+x+'</div>')).join('');			
 		result += '</div>';		
 		
 		result +='<div class="tooltip_table__stat_line">';		
-			result +='<div class="tooltip_table__stat_title">asuntotonttimaan vuokratuotto vuodessa euroa</div><div class="tooltip_table__stat_data"></div>';
+			result +='<div class="tooltip_table__stat_title">asuntotonttimaan vuokratuotto vuodessa euroa</div>';
+			result += s.getTotalLandRent().map((x) => ('<div class="tooltip_table__stat_data">'+x+'</div>')).join('');			
 		result += '</div>';		
 		
 		//Lohkon loppu
 		result += '</div>';
-		console.log("\n",result);
+		//console.log("\n",result);
 	}
 	return (result);
 }
