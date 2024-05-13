@@ -14,7 +14,8 @@ Virheitä:
 Seuraavaksi:
 - tooltip tulosteet
 	* my-util-funktio
-	* tehdään tooltipistä flex-talukko?
+	* tehdään tooltipistä flex-taulukko?
+	* tooltipin muotoilu
 - tilastosivu
 - koko maa tilastot
 - arvonmääritysraportti
