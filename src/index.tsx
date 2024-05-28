@@ -23,7 +23,7 @@ const router = createBrowserRouter([
 		element: <Contact />,
 	},  
 ]); */
-
+/* 
 export interface HelloProps {
   name: string;
   enthusiasmLevel?: number;
@@ -41,11 +41,11 @@ function Hello({ name, enthusiasmLevel = 1 }: HelloProps): React.JSX.Element {
       </div>
     </div>
   );
-}
+} */
 
-function getExclamationMarks(numChars: number): string {
+/* function getExclamationMarks(numChars: number): string {
   return Array(numChars + 1).join("!");
-}
+} */
 
 const router = createBrowserRouter([
 	{

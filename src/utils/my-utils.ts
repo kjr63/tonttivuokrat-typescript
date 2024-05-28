@@ -25,7 +25,7 @@ export function createStatTooltip (m: Municipality): string {
 		// Luo tooltip html
 		result = '<div class="tooltip_table">';
 		// Otsikko
-		result += '<div class="tooltip_table__title">Kerrostaloasuntomaan markkina-arvo kunnassa</div>';
+		result += '<div class="tooltip_table__title">Asuntomaa kunnassa</div>';
 		// Tilastojen otsikko
 		result += '<div class="tooltip_table__header">';
 			result += '<div class="tooltip_table__municipality">'+m.getName()+'</div>';

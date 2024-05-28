@@ -1,6 +1,6 @@
-//FIRMWARE
 import * as React from 'react';
 import { useEffect, useRef } from 'react';
+
 import Overlay from 'ol/Overlay.js';
 import Circle from 'ol/geom/Circle.js';
 import Polygon from 'ol/geom/Polygon.js';
@@ -23,16 +23,16 @@ import featureData from '../../data/feature-data.json';
 import muniData from '../../data/municipality-data.json';
 import { createStatTooltip } from '../utils/my-utils';
 
-console.log("munid ", muniData);
+//console.log("munid ", muniData);
 //Muodosta input-kuntatiedoista karttasovellukselle layer
-
-let featureCollection = [];
 
 const townMarker = new CircleStyle({
   radius: 8,
   fill: new Fill({color:[250,128,114,0.5]}),
   stroke: new Stroke({color: 'red', width: 3}),
 });
+/* 
+let featureCollection = [];
 
 for ( let i=0; i < featureData.length; i++ ) {
 	const feature = new Feature ({
@@ -44,6 +44,15 @@ for ( let i=0; i < featureData.length; i++ ) {
 	}));
 	featureCollection.push (feature);	
 }
+
+const feature = new Feature ({
+	geometry: new Point (fromLonLat([28.670833, 65.868056])),
+	output: "<div>Hello world!</div>"
+});
+feature.setStyle(new Style({
+	image: townMarker,
+}));
+featureCollection.push (feature); */
 
 let newFeatureCollection = [];
 
@@ -60,15 +69,6 @@ for ( let i=0; i < muniData.length; i++ ) {
 	}));
 	newFeatureCollection.push (feature);	
 }
-
-const feature = new Feature ({
-	geometry: new Point (fromLonLat([28.670833, 65.868056])),
-	output: "<div>Hello world!</div>"
-});
-feature.setStyle(new Style({
-	image: townMarker,
-}));
-featureCollection.push (feature);
 
 const vectorLayer = new VectorLayer({
 	source: new VectorSource({
@@ -99,7 +99,7 @@ function OlMap ( ): React.JSX.Element {
 			offset: [10, 0],
 			positioning: 'center-left'
 		});		
-		const map = new Map({
+		const map = new Map({		
 			layers: [
 				new TileLayer({
 				  source: new OSM(),
