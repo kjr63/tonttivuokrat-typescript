@@ -1,4 +1,5 @@
 /*********************** API ************************************/
+export type StatYears = number [];
 export type StatDO = [ number[],number[],number[],number[],number[],number[],number[],number[],number[] ];
 export class Statistics {	 
 	private avLandPrice: number [];

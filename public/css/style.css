@@ -263,6 +263,33 @@ table, th, td {
   .stats-page__link {
     font-size: 2rem; }
 
+.total_stat {
+  font-size: 4rem; }
+  .total_stat__title {
+    padding: 1rem;
+    text-align: center; }
+  .total_stat__fields {
+    display: flex;
+    margin-bottom: 2rem; }
+    .total_stat__fields-titles {
+      width: 50%;
+      font-size: 2rem; }
+    .total_stat__fields-stats {
+      width: 50%;
+      font-size: 2rem;
+      display: flex;
+      justify-content: space-around; }
+  .total_stat__years {
+    display: flex; }
+    .total_stat__years-empty {
+      border: 4px solid green;
+      width: 50%; }
+    .total_stat__years-entity {
+      width: 50%;
+      border: 4px solid green;
+      display: flex;
+      justify-content: space-around; }
+
 .template {
   background-color: #a79e84;
   transform: skewY(-20deg); }
@@ -320,8 +347,9 @@ table, th, td {
   padding: 0.4rem;
   border: 1px solid whitesmoke;
   border-radius: 5px;
-  box-shadow: 5px 5px black;
+  box-shadow: 2px 2px black;
   cursor: pointer;
+  font-size: 1.2rem;
   /* &:hover { */
   /* box-shadow: 5px 5px 10px black; */
   /* transform: translateY(-2px); */
@@ -339,6 +367,3 @@ table, th, td {
 .map {
   height: 100vh;
   width: 100%; }
-
-.ol-zoom-in {
-  width: 100px; }

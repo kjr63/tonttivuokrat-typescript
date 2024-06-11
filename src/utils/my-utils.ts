@@ -4,6 +4,7 @@ import { format } from 'mathjs';
 import { Municipality, MuniDO, Statistics, StatDO } from '../../api/api';
 import years from '../../data/general-data.json';
 
+//Testifunktio
 export async function setImgData (data: string) {
   let myPromise = new Promise (function(myResolve, myReject) {
     setTimeout(function() { myResolve("I love You !!"); }, 3000);
