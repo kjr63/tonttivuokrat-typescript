@@ -4,7 +4,7 @@ import { format } from 'mathjs';
 
 import { StatYears, CtotDO, CountryTotal, GENERAL_DATA_FILE_NAME } from '../../api/api';
 import genData from '../../data/general-data.json';
-import totalStatVääräTieto from '../../data/country-total.json';
+import totalStat from '../../data/total-data.json';
 //GENERAL_DATA_FILE_NAME: string = "general-data.json"
 
 const years: StatYears = genData;

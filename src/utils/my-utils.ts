@@ -26,7 +26,8 @@ export function createStatTooltip (m: Municipality): string {
 		// Luo tooltip html
 		result = '<div class="tooltip_table">';
 		// Otsikko
-		result += '<div class="tooltip_table__title">Asuntomaa kunnassa</div>';
+		//result += '<div class="tooltip_table__title">Asuntomaa kunnassa</div>';
+		
 		// Tilastojen otsikko
 		result += '<div class="tooltip_table__header">';
 			result += '<div class="tooltip_table__municipality">'+m.getName()+'</div>';
@@ -38,67 +39,75 @@ export function createStatTooltip (m: Municipality): string {
 			result +='<div class="tooltip_table__stat_title">Keskimääräinen tonttiarvo (per m2 euroa)</div>';
 			//result += ('<div class="tooltip_table__stat_data">'+s.getAvLandPrice()[iLast]+'</div>');
 			result += ('<div class="tooltip_table__stat_data">'+new Number(s.getAvLandPrice()[iLast]).toFixed(0)+'</div>');
-		result += '</div>';
-				
+		result += '</div>';				
 		result +='<div class="tooltip_table__stat_line">';
 			result +='<div class="tooltip_table__stat_title">Alin tonttiarvo (per m2 euroa)</div>';
 			//result += '<div class="tooltip_table__stat_data">'+s.getLowLandPrice()[iLast]+'</div>';
 			result += ('<div class="tooltip_table__stat_data">'+new Number(s.getLowLandPrice()[iLast]).toFixed(0)+'</div>');			
-		result += '</div>';		
-		
+		result += '</div>';				
 		result +='<div class="tooltip_table__stat_line">';
 			result +='<div class="tooltip_table__stat_title">Korkein tonttiarvo (per m2 euroa)</div>';
 			result += ('<div class="tooltip_table__stat_data">'+new Number(s.getHighLandPrice()[iLast]).toFixed(0)+'</div>');			
-		result += '</div>';
-	
+		result += '</div>';	
 		result +='<div class="tooltip_table__stat_line">';		
 			result +='<div class="tooltip_table__stat_title">Keskimääräinen tonttivuokra (per m2/kk euroa)</div>';
 			//result += '<div class="tooltip_table__stat_data">'+s.getAvLandRent()[iLast]+'</div>';
 			result += ('<div class="tooltip_table__stat_data">'+new Number(s.getAvLandRent()[iLast]).toFixed(2)+'</div>');			
-		result += '</div>';
-		
+		result += '</div>';		
 		result +='<div class="tooltip_table__stat_line">';		
 			result +='<div class="tooltip_table__stat_title">Alin tonttivuokra (per m2/kk euroa) </div>';
 			//result += '<div class="tooltip_table__stat_data">'+s.getLowLandRent()[iLast]+'</div>';
 			result += ('<div class="tooltip_table__stat_data">'+new Number(s.getLowLandRent()[iLast]).toFixed(2)+'</div>');			
-		result += '</div>';		
-		
+		result += '</div>';			
 		result +='<div class="tooltip_table__stat_line">';		
 			result +='<div class="tooltip_table__stat_title">Korkein tonttivuokra (per m2/kk euroa)</div>';
 			//result += '<div class="tooltip_table__stat_data">'+s.getHighLandRent()[iLast]+'</div>';
 			result += ('<div class="tooltip_table__stat_data">'+new Number(s.getHighLandRent()[iLast]).toFixed(2)+'</div>');
 		result += '</div>';
-
+		
+		// Keskimääräinen asunto
+		// Otsikko
+		result += '<div class="tooltip_table__header">';
+			result += '<div class="tooltip_table__municipality">'+'Keskimääräinen asunto 50m2'+'</div>';
+			result += strTemp;
+		result += '</div>';
+		// Tilastot
+		result +='<div class="tooltip_table__stat_line">';
+			result +='<div class="tooltip_table__stat_title">Tontin arvo (euroa)</div>';
+			result += ('<div class="tooltip_table__stat_data">'+new Number(s.getAvLandPrice()[iLast]*50).toFixed(0)+'</div>');
+		result += '</div>';	
+		result +='<div class="tooltip_table__stat_line">';		
+			result +='<div class="tooltip_table__stat_title">Tontin vuokra (per kk euroa)</div>';
+			result += ('<div class="tooltip_table__stat_data">'+new Number(s.getAvLandRent()[iLast]*50).toFixed(2)+'</div>');			
+		result += '</div>';
+		
 		// Maa yhteensä
 		result += '<div class="tooltip_table__header">';
 			result += '<div class="tooltip_table__municipality">Maa yhteensä '+m.getName()+'</div>';
 			result += '<div class="tooltip_table__year">'+years[iLast]+'</div>';			
 		result += '</div>';
-
 		result +='<div class="tooltip_table__stat_line">';		
 			result +='<div class="tooltip_table__stat_title">Asuntotonttien kokonaismäärä (m2)</div>';
 			//result += '<div class="tooltip_table__stat_data">'+s.getTotalLand()[iLast]+'</div>';
 			result += '<div class="tooltip_table__stat_data">'+format(s.getTotalLand()[iLast], {notation: 'engineering', precision: 4})+'</div>';
 		result += '</div>';		
-		
 		result +='<div class="tooltip_table__stat_line">';		
 			result +='<div class="tooltip_table__stat_title">Asuntotonttimaan kokonaisarvo (euroa)</div>';			
 			//result += '<div class="tooltip_table__stat_data">'+s.getTotalLandValue()[iLast]+'</div>';
 			result += '<div class="tooltip_table__stat_data">'+format(s.getTotalLandValue()[iLast], {notation: 'engineering', precision: 4})+'</div>';
-		result += '</div>';		
-		
+		result += '</div>';			
 		result +='<div class="tooltip_table__stat_line">';		
 			result +='<div class="tooltip_table__stat_title">Asuntotonttimaan vuokratuotto vuodessa (euroa)</div>';
 			//result += '<div class="tooltip_table__stat_data">'+s.getTotalLandRent()[iLast]+'</div>';
 			result += '<div class="tooltip_table__stat_data">'+format(s.getTotalLandRent()[iLast], {notation: 'engineering', precision: 4})+'</div>';			
 		result += '</div>';		
-		
+/*		
 		// Tilasto info
 		result += '<div class="tooltip_table__info">';
 			result += '<div class="tooltip_table__info-title">Tilastoinfo</div>';
 			result += '<div class="tooltip_table__info-text"> *Tilastojen neliömetriyksiköt (m2) ovat teknisesti kerrosneliömetrejä (kem2) eli maan arvo kohdistettuna asuntokohtaisesti</div> ';
 		result += '</div>';			
-		
+*/		
 		//Lohkon loppu
 		result += '</div>';
 		//console.log("\n",result);
