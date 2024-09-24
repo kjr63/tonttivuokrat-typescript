@@ -78,8 +78,16 @@ export function createStatTooltip (m: Municipality): string {
 		result += '</div>';	
 		result +='<div class="tooltip_table__stat_line">';		
 			result +='<div class="tooltip_table__stat_title">Tontin vuokra (per kk euroa)</div>';
-			result += ('<div class="tooltip_table__stat_data">'+new Number(s.getAvLandRent()[iLast]*50).toFixed(2)+'</div>');			
+			result += ('<div class="tooltip_table__stat_data">'+new Number(s.getAvLandRent()[iLast]*50).toFixed(0)+'</div>');			
 		result += '</div>';
+		result +='<div class="tooltip_table__stat_line">';		
+			result +='<div class="tooltip_table__stat_title">Asunnon arvo (euroa)</div>';
+			result += ('<div class="tooltip_table__stat_data">'+new Number(s.getAvPrice()[iLast]*50).toFixed(0)+'</div>');			
+		result += '</div>';
+		result +='<div class="tooltip_table__stat_line">';		
+			result +='<div class="tooltip_table__stat_title">Asunnon vuokra (per kk euroa)</div>';
+			result += ('<div class="tooltip_table__stat_data">'+new Number(s.getAvRent()[iLast]*50).toFixed(0)+'</div>');			
+		result += '</div>';		
 		
 		// Maa yhteensä
 		result += '<div class="tooltip_table__header">';
