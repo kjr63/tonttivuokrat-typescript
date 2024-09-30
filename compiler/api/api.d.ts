@@ -1,6 +1,6 @@
 /*********************** API ************************************/
 export type StatYears = number[];
-export type StatDO = [number[], number[], number[], number[], number[], number[], number[], number[], number[], number[], number[]];
+export type StatDO = [number[], number[], number[], number[], number[], number[], number[], number[], number[], number[], number[], number[]];
 export declare class Statistics {
     private avLandPrice;
     private lowLandPrice;
@@ -13,6 +13,7 @@ export declare class Statistics {
     private totalLandRent;
     private avPrice;
     private avRent;
+    private capInterest;
     constructor();
     getAvLandPrice(): number[];
     getLowLandPrice(): number[];
@@ -25,6 +26,7 @@ export declare class Statistics {
     getTotalLandRent(): number[];
     getAvPrice(): number[];
     getAvRent(): number[];
+    getCapInterest(): number[];
     setAvLandPrice(ind: number, val: number): void;
     setLowLandPrice(ind: number, val: number): void;
     setHighLandPrice(ind: number, val: number): void;
@@ -36,6 +38,7 @@ export declare class Statistics {
     setTotalLandRent(ind: number, val: number): void;
     setAvPrice(ind: number, val: number): void;
     setAvRent(ind: number, val: number): void;
+    setCapInterest(ind: number, val: number): void;
     getDataObject(): StatDO;
     setDataObject(all: StatDO): void;
 }

@@ -63,12 +63,15 @@
 		background-color: white;			
 	}
 	&__info {
+		margin-top: 8px;
+		padding-top: 8px;
+		border-top: 0.4px solid black;
 		font-size: 1.6rem;
 		&-title {
 			font-weight: bold;
 		}
 		&-text {
-			font-size: 1.2rem;
+			font-size: 1.4rem;
 		}
 	}
 }

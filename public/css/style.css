@@ -137,11 +137,14 @@ table, th, td {
     padding: 0.2rem;
     background-color: white; }
   .tooltip_table__info {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 0.4px solid black;
     font-size: 1.6rem; }
     .tooltip_table__info-title {
       font-weight: bold; }
     .tooltip_table__info-text {
-      font-size: 1.2rem; }
+      font-size: 1.4rem; }
 
 .town-title {
   font-size: 2rem;

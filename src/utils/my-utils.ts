@@ -64,6 +64,10 @@ export function createStatTooltip (m: Municipality): string {
 			//result += '<div class="tooltip_table__stat_data">'+s.getHighLandRent()[iLast]+'</div>';
 			result += ('<div class="tooltip_table__stat_data">'+new Number(s.getHighLandRent()[iLast]).toFixed(2)+'</div>');
 		result += '</div>';
+		result +='<div class="tooltip_table__stat_line">';		
+			result +='<div class="tooltip_table__stat_title">Keskimääräinen paikallinen vuokratuotto (%)</div>';
+			result += ('<div class="tooltip_table__stat_data">'+new Number((s.getCapInterest()[iLast]*100)).toFixed(2)+'</div>');
+		result += '</div>';
 		
 		// Keskimääräinen asunto
 		// Otsikko
@@ -87,7 +91,21 @@ export function createStatTooltip (m: Municipality): string {
 		result +='<div class="tooltip_table__stat_line">';		
 			result +='<div class="tooltip_table__stat_title">Asunnon vuokra (per kk euroa)</div>';
 			result += ('<div class="tooltip_table__stat_data">'+new Number(s.getAvRent()[iLast]*50).toFixed(0)+'</div>');			
-		result += '</div>';		
+		result += '</div>';	
+		
+		result +='<div class="tooltip_table__stat_line">';		
+			result +='<div class="tooltip_table__stat_title">Kustannusarvo (euroa) <i>(asunnon arvo - tontin arvo)</i></div>';
+			result += ('<div class="tooltip_table__stat_data">'+
+			new Number( (s.getAvPrice()[iLast]*50) - (s.getAvLandPrice()[iLast]*50) ).toFixed(0)+
+			'</div>');			
+		result += '</div>';
+		result +='<div class="tooltip_table__stat_line">';		
+			result +='<div class="tooltip_table__stat_title">Kustannushintainen vuokra (per kk euroa)</div>';
+			result += ('<div class="tooltip_table__stat_data">'+
+			new Number( (s.getAvRent()[iLast]*50) - (s.getAvLandRent()[iLast]*50) ).toFixed(0)+
+			'</div>');			
+		result += '</div>';
+		
 		
 		// Maa yhteensä
 		result += '<div class="tooltip_table__header">';
@@ -109,13 +127,15 @@ export function createStatTooltip (m: Municipality): string {
 			//result += '<div class="tooltip_table__stat_data">'+s.getTotalLandRent()[iLast]+'</div>';
 			result += '<div class="tooltip_table__stat_data">'+format(s.getTotalLandRent()[iLast], {notation: 'engineering', precision: 4})+'</div>';			
 		result += '</div>';		
-/*		
-		// Tilasto info
+		
+/* 		// Tilasto info
 		result += '<div class="tooltip_table__info">';
-			result += '<div class="tooltip_table__info-title">Tilastoinfo</div>';
-			result += '<div class="tooltip_table__info-text"> *Tilastojen neliömetriyksiköt (m2) ovat teknisesti kerrosneliömetrejä (kem2) eli maan arvo kohdistettuna asuntokohtaisesti</div> ';
-		result += '</div>';			
-*/		
+			result += '<div class="tooltip_table__info-title"></div>';
+			result += '<div class="tooltip_table__info-text"><b>*</b> Asunnon arvo = Koko kiinteistön markkinahinta (rakenukset + tontti)</div> ';
+			result += '<div class="tooltip_table__info-text"><b>**</b> Kustannusarvo = Rakennuksen ja rakennelmien arvo (= Asunnon arvo - Tontin arvo)</div> ';
+			result += '<div class="tooltip_table__info-text"><b>***</b> Kustannushintainen vuokra = Rakennusten ja rakennelmien osuus asunnon vuokrasta (= Asunnon vuokra - Tontin vuokra)</div> ';			
+		result += '</div>';		 */		
+		
 		//Lohkon loppu
 		result += '</div>';
 		//console.log("\n",result);

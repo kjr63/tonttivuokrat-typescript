@@ -1,6 +1,6 @@
 /*********************** API ************************************/
 export type StatYears = number [];
-export type StatDO = [ number[],number[],number[],number[],number[],number[],number[],number[],number[],number[],number[] ];
+export type StatDO = [ number[],number[],number[],number[],number[],number[],number[],number[],number[],number[],number[], number [] ];
 export class Statistics {	 
 	private avLandPrice: number [];
 	private lowLandPrice: number [];
@@ -12,7 +12,8 @@ export class Statistics {
 	private totalLandValue: number [];
 	private totalLandRent: number [];
 	private avPrice: number [];
-	private avRent: number [];	
+	private avRent: number [];
+	private capInterest: number [];	
 	public constructor () {
 		this.avLandPrice = [];
 		this.lowLandPrice = [];
@@ -25,6 +26,7 @@ export class Statistics {
 		this.totalLandRent = [];
 		this.avPrice = [];
 		this.avRent = [];
+		this.capInterest = [];		
 	}
 	public getAvLandPrice (): number [] { return this.avLandPrice; }
 	public getLowLandPrice (): number [] { return this.lowLandPrice; }
@@ -37,6 +39,7 @@ export class Statistics {
 	public getTotalLandRent (): number [] { return this.totalLandRent; }
 	public getAvPrice (): number [] { return this.avPrice; }
 	public getAvRent (): number [] { return this.avRent; }
+	public getCapInterest (): number [] { return this.capInterest; }	
 	public setAvLandPrice (ind: number, val: number): void { this.avLandPrice[ind] = val; }
 	public setLowLandPrice (ind: number, val: number): void { this.lowLandPrice[ind] = val; }
 	public setHighLandPrice (ind: number, val: number ): void { this.highLandPrice[ind] = val; }
@@ -47,7 +50,8 @@ export class Statistics {
 	public setTotalLandValue (ind: number, val: number ): void { this.totalLandValue[ind] = val; }
 	public setTotalLandRent (ind: number, val: number ): void { this.totalLandRent[ind] = val; }
 	public setAvPrice (ind: number, val: number ): void { this.avPrice[ind] = val; }
-	public setAvRent (ind: number, val: number ): void { this.avRent[ind] = val; }	
+	public setAvRent (ind: number, val: number ): void { this.avRent[ind] = val; }
+	public setCapInterest (ind: number, val: number ): void { this.capInterest[ind] = val; }	
 	public getDataObject (): StatDO {
 		return (
 			[
@@ -61,7 +65,8 @@ export class Statistics {
 				this.totalLandValue,
 				this.totalLandRent,
 				this.avPrice,
-				this.avRent
+				this.avRent,
+				this.capInterest
 			]
 		);		
 	}
@@ -76,7 +81,8 @@ export class Statistics {
 		this.totalLandValue = all[7];
 		this.totalLandRent = all[8];
 		this.avPrice = all[9];			
-		this.avRent = all[10];			
+		this.avRent = all[10];
+		this.capInterest = all[11];
 	}	
 }
 export type MuniDO = [ string, [number,number], StatDO ];
