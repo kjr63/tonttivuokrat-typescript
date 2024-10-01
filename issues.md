@@ -12,8 +12,8 @@ Virheitä:
 - React 18 mounttaa kartan kahteen kertaan. Tämä ei tapahtu tuotantomodessa, joten siitä ei ole haittaa. Mutta vaikka se toimii, on se virhe kuitenkin
 
 Seuraavaksi:
-- koko maa tilastot
 - arvonmääritysraportti
+- tilastosivu: kaikki vuodet, grafiikat ja taulukot
 
 
 

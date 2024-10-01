@@ -30,11 +30,12 @@ console.log("cTotal ",cTotal);
 
 function TotalStat (): React.JSX.Element {
 	return (
+		<main>
 		<div className="total_stat">
-			<div className="total_stat__title"> Koko maan suurimmat kaupungit yhteensä</div>
-			<div className="total_stat__years">
-				<div className="total_stat__years-empty"><pre></pre></div>
-				<div  className="total_stat__years-entity">
+			<div className="total_stat__title"> Maan suurimmat kaupungit yhteensä</div>
+			<div className="total_stat__cols">
+				<div className="total_stat__cols-title">Tilastotieto</div>
+				<div  className="total_stat__cols-entity">
 					{ years.map ( (x,i) => { 
 						return (<div key={i}>{x}</div>);
 					} ) }
@@ -42,26 +43,26 @@ function TotalStat (): React.JSX.Element {
 			</div>
 			<div className="total_stat__fields">
 				<div className="total_stat__fields-titles">				
-					<div className="total_stat__field-title">Asuntotonttimaan vuokratuotto vuodessa euroa</div>		
-					<div className="total_stat__field-title">Asuntotonttimaan kokonaisarvo euroa</div>
-					<div className="total_stat__field-title">Kotitalouksien lkm</div>
-					<div className="total_stat__field-title">Asuntotonttien kokonaismäärä m2</div>
+					<div className="total_stat__field-1">Asuntotonttimaan vuokratuotto vuodessa (euroa)</div>		
+					<div className="total_stat__field-1">Asuntotonttimaan arvo (euroa)</div>
+					<div className="total_stat__field-1">Kotitalouksien lkm</div>
+					<div className="total_stat__field-1">Asuntotonttien määrä (m2)</div>
 				</div>
 				<div className="total_stat__fields-stats">
 					{ cTotal.map ( (ct,i) => { 
 						//console.log("x",x);
 						const result =
 							<div key={i}>
-								<div>
+								<div className="total_stat__value">
 									{ format(ct.getLandRent(), {notation: 'engineering', precision: 4}) }
 								</div>
-								<div>
+								<div className="total_stat__value">
 									{ format(ct.getLandValue(), {notation: 'engineering', precision: 4}) }									
 								</div>
-								<div>
+								<div className="total_stat__value">
 									{ct.getHouseholds ()}									
 								</div>
-								<div>
+								<div className="total_stat__value">
 									{ format(ct.getLand(), {notation: 'engineering', precision: 4}) }						
 								</div>
 							</div>;
@@ -69,8 +70,11 @@ function TotalStat (): React.JSX.Element {
 					} ) }					
 				</div>
 			</div>
-			<Link to="/" className="push-button" >Takaisin karttanäyttöön</Link>
 		</div>
+		<div className="to_home">
+			<Link to="/" className="" >Takaisin karttanäyttöön</Link>
+		</div>
+		</main>
 	);
 }
 

@@ -85,12 +85,12 @@ function OlMap ( ): React.JSX.Element {
 		console.log("I'm mounting!");
 		const tooltip: (HTMLElement | undefined) = document.getElementById('tooltip') as (HTMLElement | undefined);		
 		const title: (HTMLElement | undefined) = document.getElementById('title') as (HTMLElement | undefined);
-		const stats: (HTMLElement | undefined) = document.getElementById('stats') as (HTMLElement | undefined);		
+		//const stats: (HTMLElement | undefined) = document.getElementById('stats') as (HTMLElement | undefined);		
 		const total: (HTMLElement | undefined) = document.getElementById('total') as (HTMLElement | undefined);
 		const report: (HTMLElement | undefined) = document.getElementById('report') as (HTMLElement | undefined);
 		const share: (HTMLElement | undefined) = document.getElementById('share') as (HTMLElement | undefined);
 		const mapTitle = new Control({element: title });
-		const statsPage = new Control({element: stats});		
+		//const statsPage = new Control({element: stats});		
 		const totalReport = new Control({element: total});
 		const valuationReport = new Control({element: report});
 		const shareButtons = new Control({element: share});				
@@ -115,9 +115,9 @@ function OlMap ( ): React.JSX.Element {
 		});
 		//overlay.setPosition(akaaCoords);
 		map.addControl(mapTitle);
-		map.addControl(statsPage);		
 		map.addControl(totalReport);
 		map.addControl(valuationReport);
+		//map.addControl(statsPage);			
 		map.addControl(shareButtons);
 		map.addOverlay(overlay);		
 		let selected: any = null;
@@ -152,16 +152,18 @@ function OlMap ( ): React.JSX.Element {
 				<div id="title">
 					<div id="title__1">TONTTIVUOKRAT SUOMESSA</div>
 					<div id="title__2">(Osoita kuntaa hiirellä)</div>
-				</div>
-				<div id="stats" onClick={() => navigate("statistics")}>
-					Tiedot numeroina					
-				</div>				
+				</div>			
 				<div id="total" onClick={() => navigate("total")}>
-					Koko maa
+					Koko maa yhteensä
 				</div>				
 				<div id="report" onClick={() => navigate("report")}>
 					Arvonmääritysraportti
 				</div>
+				{/*
+				<div id="stats" onClick={() => navigate("statistics")}>
+					Tiedot numeroina					
+				</div>
+				*/}
 			</div>
 			<div id="tooltip"></div>
 			<main id="map" className="map"></main>

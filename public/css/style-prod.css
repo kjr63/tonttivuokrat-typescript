@@ -94,10 +94,6 @@ table, th, td {
   visibility: visible;
   opacity: 1; }
 
-.map {
-  height: 100vh;
-  width: 100%; }
-
 #status {
   font-size: 2rem;
   display: none; }
@@ -141,11 +137,14 @@ table, th, td {
     padding: 0.2rem;
     background-color: white; }
   .tooltip_table__info {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 0.4px solid black;
     font-size: 1.6rem; }
     .tooltip_table__info-title {
       font-weight: bold; }
     .tooltip_table__info-text {
-      font-size: 1.2rem; }
+      font-size: 1.4rem; }
 
 .town-title {
   font-size: 2rem;
@@ -267,6 +266,52 @@ table, th, td {
   .stats-page__link {
     font-size: 2rem; }
 
+.total_stat {
+  width: 75%;
+  font-size: 1.6rem;
+  margin-left: 3.2rem;
+  padding: 1rem;
+  background-color: whitesmoke; }
+  .total_stat__title {
+    padding: 1rem;
+    text-align: center; }
+  .total_stat__fields {
+    display: flex;
+    margin-bottom: 4px;
+    background-color: #dcecdf; }
+    .total_stat__fields-titles {
+      width: 50%; }
+    .total_stat__fields-stats {
+      width: 50%;
+      display: flex;
+      justify-content: space-around; }
+  .total_stat__field-1 {
+    padding: 4px;
+    background-color: #ebf5ed; }
+  .total_stat__field-2 {
+    background-color: #dcecdf; }
+  .total_stat__field-3 {
+    background-color: #ebf5ed; }
+  .total_stat__field-4 {
+    background-color: #dcecdf; }
+  .total_stat__value {
+    padding: 4px; }
+  .total_stat__cols {
+    display: flex;
+    background-color: #afdcbf;
+    padding: 4px;
+    margin-bottom: 4px; }
+    .total_stat__cols-title {
+      width: 50%; }
+    .total_stat__cols-entity {
+      width: 50%;
+      display: flex;
+      justify-content: space-around; }
+
+.to_home {
+  margin: 3.2rem;
+  font-size: 1.6rem; }
+
 .template {
   background-color: #a79e84;
   transform: skewY(-20deg); }
@@ -324,8 +369,9 @@ table, th, td {
   padding: 0.4rem;
   border: 1px solid whitesmoke;
   border-radius: 5px;
-  box-shadow: 5px 5px black;
+  box-shadow: 2px 2px black;
   cursor: pointer;
+  font-size: 1.2rem;
   /* &:hover { */
   /* box-shadow: 5px 5px 10px black; */
   /* transform: translateY(-2px); */
@@ -339,3 +385,7 @@ table, th, td {
   color: white;
   font-size: 2rem;
   padding: 1rem; }
+
+.map {
+  height: 100vh;
+  width: 100%; }
