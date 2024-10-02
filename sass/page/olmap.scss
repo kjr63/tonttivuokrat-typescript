@@ -4,7 +4,7 @@
 }
 
 #tooltip {
-	font-size: 2rem;
+	font-size: 1.4rem;
 	border: 2px solid $color-pri;
 	padding: 1rem;
 	background-color: white;	
@@ -15,13 +15,13 @@
 	display: flex;
 	flex-direction: column;
 	&__title {
-		font-size: 2rem;
+		//font-size: 2rem;
 		//border: 2px solid $color-sec;
 		padding: 1rem;
 		background-color: whitesmoke;		
 	}
 	&__header { //flex container
-		font-size: 1.6rem;
+		//font-size: 1.6rem;
 		//border: 4px solid yellow;
 		//padding: 1rem;
 		background-color: white;
@@ -43,7 +43,7 @@
 		background-color: white;	
 	}
 	&__stat_line { //flex container
-		font-size: 1.6rem;
+		//font-size: 1.6rem;
 		//border: 2px solid $color-sex;
 		//padding: 0.2rem;
 		background-color: white;
@@ -66,7 +66,7 @@
 		margin-top: 8px;
 		padding-top: 8px;
 		border-top: 0.4px solid black;
-		font-size: 1.6rem;
+		//font-size: 1.6rem;
 		&-title {
 			font-weight: bold;
 		}
